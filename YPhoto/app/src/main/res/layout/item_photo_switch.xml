@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <RelativeLayout
+            android:background="@drawable/border_round_background"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <TextView
+                android:id="@+id/comment_count"
+                android:text="评论(102)"
+                android:textSize="11sp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/like_count"
+                android:text="点赞(67)"
+                android:textSize="11sp"
+                android:layout_marginStart="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/repost_count"
+                android:text="转发(23)"
+                android:textSize="11sp"
+                android:layout_marginEnd="10dp"
+                android:layout_toLeftOf="@+id/comment_count"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@drawable/border_round_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+        <ImageView
+            android:id="@+id/first_photo"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <ImageView
+        android:src="@drawable/bookmark_background"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="-4dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp" />
+
+    <TextView
+        android:id="@+id/photo_count"
+        android:text="7"
+        android:textColor="@color/colorStatusDetailText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:textSize="15sp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

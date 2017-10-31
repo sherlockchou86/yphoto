@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPopupBackgroundDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/counter"
+        android:text="2/89"
+        android:textSize="40sp"
+        android:textColor="@color/colorStatusDetailText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/photo_switch_collection"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="90dp"
+        android:paddingLeft="60dp"
+        android:paddingStart="60dp"
+        android:paddingEnd="60dp"
+        android:paddingRight="60dp"
+        android:layout_gravity="bottom"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+
+    <LinearLayout
+        android:id="@+id/author_detail"
+        android:layout_below="@id/photo_switch_collection"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+            android:id="@+id/author_avatar"
+            android:src="@drawable/default_avatar"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorAvatarBorder"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+        <TextView
+            android:id="@+id/author_nickname"
+            android:text="IT周智"
+            android:textColor="@color/colorStatusDetailText"
+            android:textSize="14sp"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/map_simple_fragment"
+        android:name="com.yphoto.zhzhi.yphoto.MapFragmentSimple"
+        android:layout_below="@id/author_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </fragment>
+
+</RelativeLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPopupBackgroundDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/photo_collection"
+        android:layout_marginBottom="146dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Add as a direct child of your ViewPager -->
+        <com.itsronald.widget.ViewPagerIndicator
+            android:id="@+id/view_pager_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dotRadius="4dp"
+            app:selectedDotColor="@color/colorSelectedBorderColor"
+            app:unselectedDotColor="@color/colorProfileFontColor"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="center_vertical"/>
+    </android.support.v4.view.ViewPager>
+
+    <RelativeLayout
+        android:id="@+id/detail_container"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+        <RelativeLayout
+            android:id="@+id/text_detail"
+            android:background="@color/colorPopupBackground"
+            android:layout_marginTop="36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </RelativeLayout>
+        <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+            android:id="@+id/author_avatar"
+            android:src="@drawable/default_avatar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            app:civ_border_color="@color/colorAvatarBorderLight"
+            app:civ_border_width="1dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:id="@+id/author_nickname"
+            android:text="IT周见智"
+            android:textSize="16sp"
+            android:textColor="@color/colorStatusDetailText"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/status_time_and_from"
+            android:text="3小时前 来自 iphone 8S"
+            android:textSize="12sp"
+            android:textColor="@color/colorStatusDetailTextLight"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="52dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/status_text"
+            android:text="111啊是减肥哈地方阿斯阿斯蒂芬较为匮乏考虑无风格士大夫敢死队风格跟第三方各位蒂芬潍坊市阿斯顿发放2222111111111"
+            android:textColor="@color/colorStatusDetailText"
+            android:layout_below="@id/author_avatar"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+
+        <LinearLayout
+            android:id="@+id/status_location_container"
+            android:layout_below="@id/status_text"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/location_icon"
+                android:src="@drawable/location_icon"
+                android:layout_width="13dp"
+                android:layout_height="13dp" />
+            <TextView
+                android:id="@+id/status_location"
+                android:text="北京微软大厦1号楼"
+                android:textSize="12sp"
+                android:layout_marginBottom="1dp"
+                android:textColor="@color/colorStatusDetailTextLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/like_btn"
+            android:text="点赞[100]"
+            android:textSize="12sp"
+            android:textColor="@color/colorStatusDetailText"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/comment_btn"
+            android:text="评论[100]"
+            android:textSize="12sp"
+            android:textColor="@color/colorStatusDetailText"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/like_btn"
+            android:layout_toLeftOf="@id/like_btn"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/repost_btn"
+            android:text="转发[100]"
+            android:textSize="12sp"
+            android:textColor="@color/colorStatusDetailText"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/comment_btn"
+            android:layout_toLeftOf="@id/comment_btn"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</RelativeLayout>

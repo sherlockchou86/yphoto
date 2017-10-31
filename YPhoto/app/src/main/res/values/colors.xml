@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff8302</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#029bfc</color>
+    <color name="colorAvatarBorder">#aaaaaa</color>
+    <color name="colorAvatarBorderLight">#ffffff</color>
+    <color name="colorDefaultViewBackground">#ffffff</color>
+    <color name="colorProfileFontColor">#ffffff</color>
+    <color name="colorStatusDetailText">#ffffff</color>
+    <color name="colorStatusDetailTextLight">#bebdbd</color>
+    <color name="colorSeparator">#ececec</color>
+    <color name="colorPopupBackground">#da000000</color>
+    <color name="colorPopupBackgroundDark">#f9000000</color>
+    <color name="colorSelectedBorderColor">#2d82f1</color>
+    <color name="colorUnSelectedBorderColor">#ffffff</color>
+    <color name="colorTransparent">#00ffffff</color>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shadow_round_background"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+        android:id="@+id/avatar"
+        android:src="@drawable/default_avatar"
+        app:civ_border_width="1.2dp"
+        app:civ_border_color="@color/colorAvatarBorder"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp" />
+
+    <View android:layout_toRightOf="@id/avatar"
+        android:layout_toEndOf="@id/avatar"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorSeparator"
+        android:id="@+id/left_separator"
+        />
+
+    <View android:layout_toStartOf="@id/search_button"
+        android:layout_toLeftOf="@id/search_button"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorSeparator"
+        android:id="@+id/right_separator"
+        />
+
+    <TextView android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/search_box"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/left_separator"
+        android:layout_toRightOf="@id/left_separator"
+        android:layout_toLeftOf="@id/right_separator"
+        android:layout_toStartOf="@id/right_separator"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:text="微软大厦--海淀区丹棱街5号"
+        />
+
+    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+        android:id="@+id/search_button"
+        android:src="@drawable/search_btn"
+        app:civ_border_width="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp" />
+</RelativeLayout>

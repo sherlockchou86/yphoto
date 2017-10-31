@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/colorDefaultViewBackground"
+    android:layout_width="250dp"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/profile_background"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+        <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+            android:id="@+id/avatar_img"
+            android:src="@drawable/default_avatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            app:civ_border_width="1.2dp"
+            app:civ_border_color="@color/colorAvatarBorderLight"
+            android:layout_width="65dp"
+            android:layout_height="65dp" />
+        <TextView
+            android:id="@+id/nickname"
+            android:text="IT周见智"
+            android:textColor="@color/colorProfileFontColor"
+            android:layout_below="@id/avatar_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+        <LinearLayout
+            android:id="@+id/map_normal_container"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:src="@drawable/map_normal"
+                app:civ_border_color="@color/colorSelectedBorderColor"
+                app:civ_border_width="1dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <TextView
+                android:textAlignment="center"
+                android:text="@string/map_normal"
+                android:textSize="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="18dp"
+            android:id="@+id/map_satellite_container"
+            android:layout_toRightOf="@id/map_normal_container"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:src="@drawable/map_satellite"
+                app:civ_border_color="@color/colorUnSelectedBorderColor"
+                app:civ_border_width="1dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <TextView
+                android:textAlignment="center"
+                android:text="@string/map_satellite"
+                android:textSize="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="18dp"
+            android:id="@+id/map_3d_container"
+            android:layout_toRightOf="@id/map_satellite_container"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:src="@drawable/map_3d"
+                app:civ_border_color="@color/colorUnSelectedBorderColor"
+                app:civ_border_width="1dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <TextView
+                android:textAlignment="center"
+                android:text="@string/map_3d"
+                android:textSize="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:background="@color/colorSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/location_favorites_list"
+            android:dividerHeight="0dp"
+            android:divider="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </RelativeLayout>
+</LinearLayout>
+</RelativeLayout>
