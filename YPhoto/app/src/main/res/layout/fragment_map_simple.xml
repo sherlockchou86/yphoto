@@ -10,11 +10,16 @@
             android:id="@+id/map_simple"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-<!--
+
         <RelativeLayout
             android:background="@drawable/gradiant_circle_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </RelativeLayout> -->
+        </RelativeLayout>
+        <RelativeLayout
+            android:background="@drawable/gradiant_line_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </RelativeLayout>
     </RelativeLayout>
 </FrameLayout>

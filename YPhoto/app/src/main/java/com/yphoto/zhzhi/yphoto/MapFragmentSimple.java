@@ -3,7 +3,7 @@ package com.yphoto.zhzhi.yphoto;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,7 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
+import com.yphoto.zhzhi.yphoto.tools.CircleTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +36,9 @@ public class MapFragmentSimple extends Fragment {
 
     // 高德地图view
     MapView mMapView;
+
+    // 坐标点
+    CircleTask mCircleTask;
 
     private OnFragmentInteractionListener mListener;
 
@@ -80,11 +84,16 @@ public class MapFragmentSimple extends Fragment {
 
         AMap map = mMapView.getMap();
         map.setMapType(AMap.MAP_TYPE_NIGHT);
-        // map.getUiSettings().setZoomControlsEnabled(false);
-        // map.getUiSettings().setAllGesturesEnabled(false);
+        map.getUiSettings().setZoomControlsEnabled(false);
+        map.getUiSettings().setAllGesturesEnabled(false);
 
-        CameraUpdate mCameraUpdate = CameraUpdateFactory.newCameraPosition(new CameraPosition(new LatLng(39, 117),14,0,0));
+        LatLng loc = new LatLng(39.9793157, 116.3107618);
+        CameraUpdate mCameraUpdate = CameraUpdateFactory.newCameraPosition(new CameraPosition(loc,14 ,0,0));
         map.animateCamera(mCameraUpdate, 1000, null);
+
+        if(mCircleTask == null) {
+            mCircleTask = new CircleTask(map, loc, 15, 20, 40);
+        }
 
         return sView;
     }
@@ -153,5 +162,14 @@ public class MapFragmentSimple extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    public void updateLoc(LatLng loc) {
+        AMap aMap = mMapView.getMap();
+        CameraUpdate mCameraUpdate = CameraUpdateFactory.newCameraPosition(new CameraPosition(loc,14 ,0,0));
+        aMap.animateCamera(mCameraUpdate, 1000, null);
+
+        mCircleTask.updateLocation(loc);
     }
 }

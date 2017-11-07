@@ -19,6 +19,9 @@ import java.util.Map;
 public class PhotoSwitchViewPagerAdapter extends PagerAdapter {
     List<Map<String, Object>> mData;
     Context mContext;
+
+    private OnPhotoSwitchViewPagerItemClickListener itemClickListener;
+
     public PhotoSwitchViewPagerAdapter(Context context, List<Map<String, Object>> data) {
         mData = data;
         mContext = context;
@@ -38,7 +41,7 @@ public class PhotoSwitchViewPagerAdapter extends PagerAdapter {
 
     // 每次滑动的时候生成的View
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_photo_switch, null);
         Map<String, Object> record = mData.get(position);
 
@@ -46,6 +49,14 @@ public class PhotoSwitchViewPagerAdapter extends PagerAdapter {
         image_view.setImageResource((Integer) record.get("photo"));
         container.addView(view);
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(itemClickListener != null) {
+                    itemClickListener.onPhotoSwitchViewPagerItemClick(position);
+                }
+            }
+        });
         return view;
     }
 
@@ -53,5 +64,15 @@ public class PhotoSwitchViewPagerAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(View arg0, Object arg1) {
         return arg0 == arg1;
+    }
+
+    //
+    public void addOnPhotoSwitchViewPagerClickListener(OnPhotoSwitchViewPagerItemClickListener listener) {
+        itemClickListener = listener;
+    }
+
+    // item clicked interface
+    public interface OnPhotoSwitchViewPagerItemClickListener {
+        void onPhotoSwitchViewPagerItemClick(int position);
     }
 }

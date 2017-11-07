@@ -1,10 +1,10 @@
 package com.yphoto.zhzhi.yphoto;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
@@ -50,12 +50,16 @@ public class PhotoListView extends RelativeLayout implements PhotoRecycleListVie
 
     @Override
     public void onItemClick(View view, int position) {
+        /*
         if (popup == null && switch_view == null) {
             switch_view = new PhotoSwitchView(getContext());
             popup = new PopupWindow(switch_view, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, true);
             popup.setAnimationStyle(R.style.PopupAnimation);
         }
         popup.showAtLocation(this, Gravity.NO_GRAVITY, 0, 0);
+        */
+        Intent intent = new Intent(getContext(), PhotoActivity.class);
+        getContext().startActivity(intent);
     }
 
     private void loadPhotos() {

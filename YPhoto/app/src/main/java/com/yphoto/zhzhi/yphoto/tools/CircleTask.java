@@ -35,6 +35,18 @@ public class CircleTask extends TimerTask {
     AMap aMap;
 
     public CircleTask(AMap aMap, LatLng loc) {
+        init(aMap, loc);
+    }
+
+    public CircleTask(AMap aMap, LatLng loc, double circle_r, double cr, double acr) {
+        this.circle_r = circle_r;
+        this.cr = cr;
+        this.acr = acr;
+
+        init(aMap, loc);
+    }
+
+    private void init(AMap aMap, LatLng loc) {
         this.aMap = aMap;
         ac = aMap.addCircle(new CircleOptions().center(loc)
                 .fillColor(Color.argb(155, 255, 218, 185))
