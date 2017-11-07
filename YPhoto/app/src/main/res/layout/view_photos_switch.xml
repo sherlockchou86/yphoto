@@ -35,11 +35,9 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+        <ImageView
             android:id="@+id/author_avatar"
             android:src="@drawable/default_avatar"
-            app:civ_border_width="2dp"
-            app:civ_border_color="@color/colorAvatarBorder"
             android:layout_width="36dp"
             android:layout_height="36dp" />
         <TextView

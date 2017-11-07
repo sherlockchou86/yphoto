@@ -7,12 +7,12 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.amap.api.maps.model.LatLng;
-import com.yphoto.zhzhi.yphoto.tools.CircleImageView;
 import com.yphoto.zhzhi.yphoto.tools.CustPagerTransformer;
 import com.yphoto.zhzhi.yphoto.tools.PhotoSwitchViewPagerAdapter;
 
@@ -184,7 +184,7 @@ public class PhotoSwitchView extends RelativeLayout implements ViewPager.OnPageC
             MapFragmentSimple map = (MapFragmentSimple) ((Activity)mContext).getFragmentManager().findFragmentById(R.id.map_simple_fragment);
             map.updateLoc((LatLng) record.get("loc"));  // update the map center
 
-            final CircleImageView avatar = (CircleImageView) findViewById(R.id.author_avatar);
+            final ImageView avatar = (ImageView) findViewById(R.id.author_avatar);
             final TextView nickname = (TextView) findViewById(R.id.author_nickname);
 
             avatar.setImageResource((int) record.get("avatar"));
