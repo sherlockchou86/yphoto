@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.itsronald.widget.ViewPagerIndicator;
 import com.yphoto.zhzhi.yphoto.tools.PhotoDetailViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ public class StatusDetailView extends RelativeLayout {
         ViewPager pager = (ViewPager) root.findViewById(R.id.photo_collection);
         PhotoDetailViewPagerAdapter adapter = new PhotoDetailViewPagerAdapter(getContext(), getPhotos());
         pager.setAdapter(adapter);
+
+        ViewPagerIndicator indicator = (ViewPagerIndicator) findViewById(R.id.view_pager_indicator);
+        indicator.setGravity(3);
     }
 
     private List<Map<String, Object>> getPhotos() {

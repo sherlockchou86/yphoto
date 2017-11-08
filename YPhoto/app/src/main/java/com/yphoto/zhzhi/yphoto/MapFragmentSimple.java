@@ -168,7 +168,7 @@ public class MapFragmentSimple extends Fragment {
     public void updateLoc(LatLng loc) {
         AMap aMap = mMapView.getMap();
         CameraUpdate mCameraUpdate = CameraUpdateFactory.newCameraPosition(new CameraPosition(loc,14 ,0,0));
-        aMap.animateCamera(mCameraUpdate, 1000, null);
+        aMap.animateCamera(mCameraUpdate, 300, null);
 
         mCircleTask.updateLocation(loc);
     }

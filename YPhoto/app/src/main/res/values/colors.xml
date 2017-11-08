@@ -15,4 +15,5 @@
     <color name="colorSelectedBorderColor">#2d82f1</color>
     <color name="colorUnSelectedBorderColor">#ffffff</color>
     <color name="colorTransparent">#00ffffff</color>
+    <color name="colorTextBackground">#83000000</color>
 </resources>

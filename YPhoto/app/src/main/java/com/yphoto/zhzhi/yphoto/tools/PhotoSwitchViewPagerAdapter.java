@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.yphoto.zhzhi.yphoto.R;
 
@@ -47,6 +48,16 @@ public class PhotoSwitchViewPagerAdapter extends PagerAdapter {
 
         ImageView image_view = (ImageView) view.findViewById(R.id.first_photo);
         image_view.setImageResource((Integer) record.get("photo"));
+
+        TextView image_count = (TextView) view.findViewById(R.id.photo_count);
+        image_count.setText(record.get("count").toString());
+
+        //CircleImageView avatar = (CircleImageView) view.findViewById(R.id.avatar);
+        //avatar.setImageResource((int) record.get("avatar"));
+
+        TextView nickname = (TextView) view.findViewById(R.id.nickename);
+        nickname.setText(record.get("nickname").toString());
+
         container.addView(view);
 
         view.setOnClickListener(new View.OnClickListener() {
