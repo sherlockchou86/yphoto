@@ -2,12 +2,11 @@ package com.yphoto.zhzhi.yphoto;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -210,9 +209,14 @@ public class PhotoSwitchView extends RelativeLayout implements ViewPager.OnPageC
 
     @Override
     public void onPhotoSwitchViewPagerItemClick(int position) {
+        /*
         StatusDetailView detailView = new StatusDetailView(getContext());
         PopupWindow popup = new PopupWindow(detailView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, true);
         popup.setAnimationStyle(R.style.PopupAnimation);
         popup.showAtLocation(this, Gravity.NO_GRAVITY, 0, 0);
+        */
+
+        Intent intent = new Intent(getContext(), StatusDetailActivity.class);
+        getContext().startActivity(intent);
     }
 }

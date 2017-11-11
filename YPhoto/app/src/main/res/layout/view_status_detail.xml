@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
     <android.support.v4.view.ViewPager
         android:id="@+id/photo_collection"
-        android:layout_marginBottom="146dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.v4.view.ViewPager>
@@ -21,28 +20,30 @@
         app:selectedDotColor="@color/colorSelectedBorderColor"
         app:unselectedDotColor="@color/colorProfileFontColor"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         />
 
     <ImageView
-        android:id="@+id/close_btn"
-        android:src="@drawable/close_btn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="13dp"
-        android:layout_marginStart="15dp"
+        android:id="@+id/for_detail_btn"
+        android:src="@drawable/up"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
         android:layout_width="24dp"
         android:layout_height="24dp" />
 
     <RelativeLayout
         android:id="@+id/detail_container"
-        android:layout_alignParentBottom="true"
+        android:visibility="visible"
         android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_height="170dp">
         <RelativeLayout
             android:id="@+id/text_detail"
             android:background="@color/colorPopupBackground"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="20dp"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -55,7 +56,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             app:civ_border_color="@color/colorAvatarBorderLight"
             app:civ_border_width="1dp"
             android:layout_width="50dp"
@@ -70,7 +71,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="70dp"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="26dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -80,7 +81,7 @@
             android:textSize="12sp"
             android:textColor="@color/colorStatusDetailTextLight"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="46dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
@@ -131,7 +132,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -144,7 +145,7 @@
             android:layout_toLeftOf="@id/like_btn"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -157,7 +158,7 @@
             android:layout_toLeftOf="@id/comment_btn"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.yphoto.zhzhi.yphoto.maps;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -10,11 +11,12 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.amap.api.maps.AMap;
@@ -29,7 +31,9 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.animation.AlphaAnimation;
 import com.amap.api.maps.model.animation.Animation;
+import com.yphoto.zhzhi.yphoto.PhotoActivity;
 import com.yphoto.zhzhi.yphoto.R;
+import com.yphoto.zhzhi.yphoto.StatusDetailActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,7 +56,7 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
     private ClusterRender mClusterRender;
     private List<Marker> mAddMarkers = new ArrayList<Marker>();
     private double mClusterDistance;
-    private LruCache<Integer, BitmapDescriptor> mLruCache;
+    private LruCache<Integer, Drawable> mLruCache;
     private HandlerThread mMarkerHandlerThread = new HandlerThread("addMarker");
     private HandlerThread mSignClusterThread = new HandlerThread("calculateCluster");
     private Handler mMarkerhandler;
@@ -85,11 +89,8 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
      */
     public ClusterOverlay(AMap amap, List<ClusterItem> clusterItems,
                           int clusterSize, Context context) {
-     //默认最多会缓存80张图片作为聚合显示元素图片,根据自己显示需求和app使用内存情况,可以修改数量
-        mLruCache = new LruCache<Integer, BitmapDescriptor>(80) {
-            protected void entryRemoved(boolean evicted, Integer key, BitmapDescriptor oldValue, BitmapDescriptor newValue) {
-                oldValue.getBitmap().recycle();
-            }
+        //默认最多会缓存80张图片作为聚合显示元素图片,根据自己显示需求和app使用内存情况,可以修改数量
+        mLruCache = new LruCache<Integer, Drawable>(80) {
         };
         if (clusterItems != null) {
             mClusterItems = clusterItems;
@@ -335,30 +336,10 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
      * 获取每个聚合点的绘制样式
      */
     private BitmapDescriptor getBitmapDes(Cluster cluster) {
-        /*
-        BitmapDescriptor bitmapDescriptor = mLruCache.get(num);
-        if (bitmapDescriptor == null) {
-            TextView textView = new TextView(mContext);
-            if (num > 1) {
-                String tile = String.valueOf(num);
-                textView.setText(tile);
-            }
-            textView.setGravity(Gravity.CENTER);
-            textView.setTextColor(Color.BLACK);
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-            if (mClusterRender != null && mClusterRender.getDrawAble(num) != null) {
-                textView.setBackgroundDrawable(mClusterRender.getDrawAble(num));
-            } else {
-                textView.setBackgroundResource(R.drawable.defaultcluster);
-            }
-            bitmapDescriptor = BitmapDescriptorFactory.fromView(textView);
-            mLruCache.put(num, bitmapDescriptor);
-
-        }
-        return bitmapDescriptor;
-        */
-
         View cluster_in_map = LayoutInflater.from(mContext).inflate(R.layout.view_cluster_in_map, null, false);
+        RelativeLayout container = (RelativeLayout) cluster_in_map.findViewById(R.id.container);
+        container.setLayoutParams(new ViewGroup.LayoutParams(dp2px(mContext, 70), dp2px(mContext, 70)));
+
         TextView cluster_count = (TextView) cluster_in_map.findViewById(R.id.cluster_count);
         ImageView first_image = (ImageView) cluster_in_map.findViewById(R.id.first_photo);
 
@@ -387,20 +368,33 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
     @Override
     public Drawable getDrawAble(RegionItem regionItem) {
         // 直接从resource中取图片， 后期需修改
-        Drawable bitmapDrawable =  mContext.getResources().getDrawable(
-                regionItem.getImage());
+        Drawable bitmapDrawable = mLruCache.get(regionItem.getGUID());
+        if(bitmapDrawable == null) {
+            bitmapDrawable = mContext.getResources().getDrawable(
+                    regionItem.getImage());
+            mLruCache.put(regionItem.getGUID(), bitmapDrawable);
+        }
         return bitmapDrawable;
     }
 
+    // 点击放大地图
     @Override
     public void onClick(Marker marker, List<ClusterItem> clusterItems) {
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (ClusterItem clusterItem : clusterItems) {
-            builder.include(clusterItem.getPosition());
+        if (clusterItems.size() == 1) {    //只有一个用户，直接打开status detail activity
+            Intent intent = new Intent(mContext, StatusDetailActivity.class);
+            mContext.startActivity(intent);
+        } else if (clusterItems.size() <30) {    //30个用户之下的，打开photo switch activity
+            Intent intent = new Intent(mContext, PhotoActivity.class);
+            mContext.startActivity(intent);
+        } else { //放大地图
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            for (ClusterItem clusterItem : clusterItems) {
+                builder.include(clusterItem.getPosition());
+            }
+            LatLngBounds latLngBounds = builder.build();
+            mAMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 0)
+            );
         }
-        LatLngBounds latLngBounds = builder.build();
-        mAMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 0)
-        );
     }
 
     private Bitmap drawCircle(int radius, int color) {
@@ -502,7 +496,7 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
                 case CALCULATE_SINGLE_CLUSTER:
                     ClusterItem item = (ClusterItem) message.obj;
                     mClusterItems.add(item);
-                    Log.i("yiyi.qi","calculate single cluster");
+                    //Log.i("yiyi.qi","calculate single cluster");
                     calculateSingleCluster(item);
                     break;
             }

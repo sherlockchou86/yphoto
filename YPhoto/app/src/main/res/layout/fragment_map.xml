@@ -17,7 +17,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -228,7 +228,7 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
 
                         LatLng latLng = new LatLng(lat, lon, false);
                         RegionItem regionItem = new RegionItem(latLng,
-                                "test" + i, R.drawable.default_avatar);
+                                "test" + i, R.drawable.default_avatar, i);
 
                         mClusterOverlay.addClusterItem(regionItem);
                     }

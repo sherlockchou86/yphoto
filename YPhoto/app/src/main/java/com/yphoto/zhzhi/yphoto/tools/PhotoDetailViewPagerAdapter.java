@@ -20,6 +20,8 @@ public class PhotoDetailViewPagerAdapter extends PagerAdapter {
 
     List<Map<String, Object>> mData;
     Context mContext;
+    View.OnClickListener mClickListener;
+
     public PhotoDetailViewPagerAdapter(Context context, List<Map<String, Object>> data) {
         mData = data;
         mContext = context;
@@ -39,14 +41,22 @@ public class PhotoDetailViewPagerAdapter extends PagerAdapter {
 
     // 每次滑动的时候生成的View
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_photo_detail, null);
+    public Object instantiateItem(ViewGroup container, final int position) {
+        final View view = LayoutInflater.from(mContext).inflate(R.layout.item_photo_detail, null);
         Map<String, Object> record = mData.get(position);
 
         ImageView image_view = (ImageView) view.findViewById(R.id.photo_detail);
         image_view.setImageResource((Integer) record.get("photo"));
         container.addView(view);
 
+        image_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mClickListener != null) {
+                   mClickListener.onClick(view);
+                }
+            }
+        });
         return view;
     }
 
@@ -54,5 +64,9 @@ public class PhotoDetailViewPagerAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(View arg0, Object arg1) {
         return arg0 == arg1;
+    }
+
+    public void setItemClickListener(View.OnClickListener listener) {
+        mClickListener = listener;
     }
 }
