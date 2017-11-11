@@ -1,13 +1,13 @@
 package com.yphoto.zhzhi.yphoto;
 
 import android.Manifest;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +19,11 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
+import com.yphoto.zhzhi.yphoto.maps.ClusterOverlay;
+import com.yphoto.zhzhi.yphoto.maps.RegionItem;
 import com.yphoto.zhzhi.yphoto.tools.CircleTask;
+
+import static com.yphoto.zhzhi.yphoto.maps.ClusterOverlay.dp2px;
 
 
 /**
@@ -42,12 +46,19 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
 
     private OnFragmentInteractionListener mListener;
 
+    Context mContext;
+
     // 高德地图view
     MapView mMapView;
     // 显示该位置附近的photo（不是定位坐标）
     LatLng mCurrentLocation;
     // 地图中位置闪烁点
     CircleTask mCircle;
+
+    private int clusterRadius = 100;
+
+    // 负责地图中聚合点的显示
+    private ClusterOverlay mClusterOverlay;
 
     public MapFragment() {
         // Required empty public constructor
@@ -104,6 +115,7 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        mContext = context;
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
@@ -134,6 +146,8 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
     public void onDestroy() {
         super.onDestroy();
         mMapView.onDestroy();
+        mClusterOverlay.onDestroy();
+
     }
 
     @Override
@@ -156,6 +170,11 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
     private void initAMap() {
         if(mMapView !=null) {
             AMap aMap = mMapView.getMap();
+
+            // 初始化ClusterOverlay
+            mClusterOverlay = new ClusterOverlay(aMap, null,
+                    dp2px(mContext, clusterRadius),
+                    mContext);
 
             // Map UI设置
             aMap.getUiSettings().setZoomControlsEnabled(false);
@@ -195,6 +214,27 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
             }
 
             // 开始加载周边photo
+
+            //添加测试数据
+            new Thread() {
+                public void run() {
+
+
+                    //随机10000个点
+                    for (int i = 0; i < 10000; i++) {
+
+                        double lat = Math.random() + mCurrentLocation.latitude;
+                        double lon = Math.random() + mCurrentLocation.longitude;
+
+                        LatLng latLng = new LatLng(lat, lon, false);
+                        RegionItem regionItem = new RegionItem(latLng,
+                                "test" + i, R.drawable.default_avatar);
+
+                        mClusterOverlay.addClusterItem(regionItem);
+                    }
+                }
+
+            }.start();
         }
     }
 
