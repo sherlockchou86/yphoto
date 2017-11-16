@@ -44,7 +44,8 @@
         </activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".PhotoActivity" />
-        <activity android:name=".StatusDetailActivity"></activity>
+        <activity android:name=".StatusDetailActivity" />
+        <activity android:name=".LocationSearchActivity"></activity>
     </application>
 
 </manifest>

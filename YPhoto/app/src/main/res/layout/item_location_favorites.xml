@@ -2,42 +2,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="14dp"
-    android:paddingEnd="14dp"
-    android:paddingBottom="6dp"
-    android:paddingTop="6dp">
-
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
     <ImageView
         android:id="@+id/location_icon"
-        android:src="@drawable/location_icon"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
+        android:src="@drawable/location_icon2"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="24dp"
+        android:layout_height="24dp" />
+
+    <ImageView
+        android:id="@+id/item_type_icon"
+        android:src="@drawable/timer"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="6dp"
+        android:layout_marginEnd="6dp"
         android:layout_width="20dp"
         android:layout_height="20dp" />
-    <TextView
-        android:id="@+id/location_name"
-        android:text="中国电子大厦"
-        android:textSize="14sp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_toRightOf="@id/location_icon"
-        android:layout_toEndOf="@id/location_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/location_detail"
-        android:text="北京市-海淀区-丹棱街"
-        android:textSize="12sp"
-        android:textColor="@color/colorStatusDetailTextLight"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="0dp"
-        android:layout_toRightOf="@id/location_icon"
-        android:layout_toEndOf="@id/location_icon"
-        android:layout_below="@id/location_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_toLeftOf="@id/item_type_icon"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/location_name"
+            android:text="中国电子大厦"
+            android:textSize="14sp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/location_detail"
+            android:text="北京市-海淀区-丹棱街"
+            android:textSize="12sp"
+            android:textColor="@color/colorStatusDetailTextLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:background="@color/colorSeparator"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"/>
 </RelativeLayout>
