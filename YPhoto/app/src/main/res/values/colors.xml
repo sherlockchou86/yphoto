@@ -10,10 +10,11 @@
     <color name="colorStatusDetailText">#ffffff</color>
     <color name="colorStatusDetailTextLight">#bebdbd</color>
     <color name="colorSeparator">#ececec</color>
-    <color name="colorPopupBackground">#da000000</color>
+    <color name="colorPopupBackground">#60000000</color>
     <color name="colorPopupBackgroundDark">#000000</color>
     <color name="colorSelectedBorderColor">#029bfc</color>
     <color name="colorUnSelectedBorderColor">#ffffff</color>
+    <color name="colorUnSelectedTextColor">#aaaaaa</color>
     <color name="colorTransparent">#00ffffff</color>
     <color name="colorTextBackground">#83000000</color>
 </resources>

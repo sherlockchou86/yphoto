@@ -9,7 +9,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
-        android:background="@drawable/profile_background2"
+        android:id="@+id/profile_container"
+        android:background="@drawable/map_normal"
         android:layout_width="match_parent"
         android:layout_height="190dp">
         <RelativeLayout
@@ -29,41 +30,49 @@
             android:layout_height="65dp" />
         <TextView
             android:id="@+id/nickname"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/black_round_background"
             android:text="IT周见智"
             android:textColor="@color/colorProfileFontColor"
             android:layout_below="@id/avatar_img"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:textSize="17dp"
+            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-    <RelativeLayout
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal|top"
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
-        <LinearLayout
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal|top"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <LinearLayout
             android:id="@+id/map_normal_container"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:id="@+id/map_normal_image"
                 android:src="@drawable/map_normal"
                 app:civ_border_color="@color/colorSelectedBorderColor"
                 app:civ_border_width="1dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
+                android:id="@+id/map_normal_text"
                 android:textAlignment="center"
+                android:textColor="@color/colorSelectedBorderColor"
                 android:text="@string/map_normal"
                 android:textSize="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
+            </LinearLayout>
+            <LinearLayout
             android:layout_marginLeft="18dp"
             android:id="@+id/map_satellite_container"
             android:layout_toRightOf="@id/map_normal_container"
@@ -73,19 +82,21 @@
             android:layout_height="wrap_content">
             <com.yphoto.zhzhi.yphoto.tools.CircleImageView
                 android:src="@drawable/map_satellite"
+                android:id="@+id/map_satellite_image"
                 app:civ_border_color="@color/colorUnSelectedBorderColor"
                 app:civ_border_width="1dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
+                android:id="@+id/map_satellite_text"
                 android:textAlignment="center"
                 android:text="@string/map_satellite"
                 android:textSize="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
+            </LinearLayout>
+            <LinearLayout
             android:layout_marginLeft="18dp"
             android:id="@+id/map_3d_container"
             android:layout_toRightOf="@id/map_satellite_container"
@@ -94,20 +105,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:id="@+id/map_3d_image"
                 android:src="@drawable/map_3d"
                 app:civ_border_color="@color/colorUnSelectedBorderColor"
                 app:civ_border_width="1dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
+                android:id="@+id/map_3d_text"
                 android:textAlignment="center"
                 android:text="@string/map_3d"
                 android:textSize="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
+            </LinearLayout>
+            <LinearLayout
             android:layout_marginLeft="18dp"
             android:id="@+id/map_night_container"
             android:layout_toRightOf="@id/map_3d_container"
@@ -116,20 +129,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-                android:src="@drawable/map_3d"
+                android:id="@+id/map_night_image"
+                android:src="@drawable/map_night"
                 app:civ_border_color="@color/colorUnSelectedBorderColor"
                 app:civ_border_width="1dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
+                android:id="@+id/map_night_text"
                 android:textAlignment="center"
                 android:text="@string/map_night"
                 android:textSize="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
-    </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 

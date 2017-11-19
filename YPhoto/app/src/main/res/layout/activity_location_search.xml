@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
             <RelativeLayout
-                android:layout_margin="5dp"
+                android:layout_margin="6dp"
                 android:background="@drawable/border_round_background"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:textSize="14sp"
                     android:background="@null"
-                    android:text="海淀区丹棱街5号"
+                    android:text=""
                     android:layout_marginStart="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_toRightOf="@id/search_icon"
@@ -50,16 +50,50 @@
                     android:layout_height="match_parent" />
             </RelativeLayout>
         </RelativeLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:background="@color/colorSeparator"
-            android:layout_height="0.8dp" />
         <RelativeLayout
             android:id="@+id/result_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/tip_container"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="40dp">
+                <View
+                    android:background="@color/colorSeparator"
+                    android:layout_marginRight="3dp"
+                    android:layout_width="30dp"
+                    android:layout_height="0.8dp"/>
+                <TextView
+                    android:id="@+id/tip_text"
+                    android:text="12条历史记录，"
+                    android:textColor="@color/colorStatusDetailTextLight"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/action_btn"
+                    android:text="点击清空"
+                    android:textColor="@color/colorSelectedBorderColor"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:background="@color/colorSeparator"
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="30dp"
+                    android:layout_height="0.8dp"/>
+            </LinearLayout>
+            <View
+                android:id="@+id/separator_holder"
+                android:layout_below="@id/tip_container"
+                android:background="@color/colorSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"/>
             <RelativeLayout
                 android:id="@+id/history_container"
+                android:layout_marginTop="41dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ListView
@@ -72,6 +106,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/search_container"
+                android:layout_marginTop="41dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ListView

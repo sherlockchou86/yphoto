@@ -184,6 +184,8 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
             aMap.getUiSettings().setLogoBottomMargin(20);
             aMap.getUiSettings().setLogoLeftMargin(20);
 
+            aMap.setMapType(AMap.MAP_TYPE_NIGHT);
+
             // 显示室内地图
             aMap.showIndoorMap(true);
 
