@@ -41,7 +41,7 @@ public class PhotoRecycleListViewAdapter extends RecyclerView.Adapter<PhotoRecyc
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Map<String, Object> record = mData.get(position);
-        holder.myView.setImageResource(R.drawable.profile_background);   // the first photo
+        holder.myView.setImageResource(R.drawable.sign_in_background);   // the first photo
         holder.myTextView.setText(record.get("image_count").toString());   //photo count (max is 9)
     }
 

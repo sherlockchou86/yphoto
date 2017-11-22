@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yphoto.zhzhi.yphoto.SignInActivity">
+    <RelativeLayout
+        android:background="@drawable/sign_in_background2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginTop="110dp"
+            android:background="@color/colorSignInLogoBackground"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+            <TextView
+                android:text="YPhoto"
+                android:textColor="@color/colorStatusDetailText"
+                android:textSize="35sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorStatusDetailText"
+                android:text="发现周边美图"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/signin_btn"
+                android:background="@drawable/signin_btn_background"
+                android:layout_width="220dp"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/signin_txt"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="70dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:text="微博登录"
+                    android:textColor="@color/colorStatusDetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/weibo_logo"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@id/signin_txt"
+                    android:layout_centerVertical="true"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/github_btn"
+                android:background="@drawable/signin_btn_background"
+                android:text="fork me on github"
+                android:textSize="12sp"
+                android:textColor="@color/colorStatusDetailText"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textAlignment="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

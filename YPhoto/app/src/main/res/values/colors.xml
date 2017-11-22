@@ -17,4 +17,6 @@
     <color name="colorUnSelectedTextColor">#aaaaaa</color>
     <color name="colorTransparent">#00ffffff</color>
     <color name="colorTextBackground">#83000000</color>
+    <color name="colorSignInButtonBackground">#38ffffff</color>
+    <color name="colorSignInLogoBackground">#21ffffff</color>
 </resources>

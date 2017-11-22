@@ -36,16 +36,19 @@
             android:value="5f9284b4f35f294fe232ba2717c30367" />
 
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".PhotoActivity" />
         <activity android:name=".StatusDetailActivity" />
-        <activity android:name=".LocationSearchActivity"></activity>
+        <activity android:name=".LocationSearchActivity" />
+        <activity android:name=".SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

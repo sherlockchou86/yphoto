@@ -69,26 +69,26 @@ public class StatusDetailView extends RelativeLayout implements View.OnClickList
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.profile_background);
+        map.put("photo", R.drawable.sign_in_background2);
 
         map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.profile_background);
+        map.put("photo", R.drawable.sign_in_background);
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.profile_background);
+        map.put("photo", R.drawable.sign_in_background2);
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.profile_background);
+        map.put("photo", R.drawable.sign_in_background);
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.profile_background);
+        map.put("photo", R.drawable.sign_in_background2);
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.profile_background);
+        map.put("photo", R.drawable.sign_in_background);
         list.add(map);
 
         return list;

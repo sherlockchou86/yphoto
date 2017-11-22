@@ -23,6 +23,8 @@ import com.yphoto.zhzhi.yphoto.maps.ClusterOverlay;
 import com.yphoto.zhzhi.yphoto.maps.RegionItem;
 import com.yphoto.zhzhi.yphoto.tools.CircleTask;
 
+import java.util.Random;
+
 import static com.yphoto.zhzhi.yphoto.maps.ClusterOverlay.dp2px;
 
 
@@ -184,7 +186,7 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
             aMap.getUiSettings().setLogoBottomMargin(20);
             aMap.getUiSettings().setLogoLeftMargin(20);
 
-            aMap.setMapType(AMap.MAP_TYPE_NIGHT);
+            //aMap.setMapType(AMap.MAP_TYPE_NIGHT);
 
             // 显示室内地图
             aMap.showIndoorMap(true);
@@ -220,8 +222,8 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
             //添加测试数据
             new Thread() {
                 public void run() {
-
-
+                    int[] avatars = new int[] {R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
+                    Random r = new Random();
                     //随机10000个点
                     for (int i = 0; i < 10000; i++) {
 
@@ -230,7 +232,7 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
 
                         LatLng latLng = new LatLng(lat, lon, false);
                         RegionItem regionItem = new RegionItem(latLng,
-                                "test" + i, R.drawable.default_avatar, i);
+                                "test" + i, avatars[r.nextInt(6)], i);
 
                         mClusterOverlay.addClusterItem(regionItem);
                     }
