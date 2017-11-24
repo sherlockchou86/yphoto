@@ -42,14 +42,14 @@ public class LocationSearchActivity extends AppCompatActivity {
         map.put("name", "中国电子大厦");
         map.put("detail", "海淀区-丹棱街5号");
         map.put("loc", new LatLng(1,1));  // 该位置的具体经纬度\
-        map.put("item_type", R.drawable.up_left);
+        map.put("item_type", R.drawable.timer);
         list.add(map);
 
         map = new HashMap<String, Object>();
         map.put("name", "北京东方君悦大酒店");
         map.put("detail", "北京市-东城区-东长安街1号东方广场");
         map.put("loc", new LatLng(1,1));  // 该位置的具体经纬度
-        map.put("item_type", R.drawable.up_left);
+        map.put("item_type", R.drawable.timer);
         list.add(map);
 
         map = new HashMap<String, Object>();

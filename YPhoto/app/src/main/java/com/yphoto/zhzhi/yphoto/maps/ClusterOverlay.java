@@ -64,6 +64,8 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
     private float mPXInMeters;
     private boolean mIsCanceled = false;
 
+    private float mCurrentZoom;
+
     private Map<Integer, Drawable> mBackDrawAbles = new HashMap<Integer, Drawable>();
 
     /**
@@ -172,9 +174,12 @@ public class ClusterOverlay implements AMap.OnCameraChangeListener, ClusterRende
 
     @Override
     public void onCameraChangeFinish(CameraPosition arg0) {
-        mPXInMeters = mAMap.getScalePerPixel();
-        mClusterDistance = mPXInMeters * mClusterSize;
-        assignClusters();
+        if (mCurrentZoom != arg0.zoom) {
+            mCurrentZoom = arg0.zoom;
+            mPXInMeters = mAMap.getScalePerPixel();
+            mClusterDistance = mPXInMeters * mClusterSize;
+            assignClusters();
+        }
     }
 
     //点击事件

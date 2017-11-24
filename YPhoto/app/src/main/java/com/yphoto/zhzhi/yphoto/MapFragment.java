@@ -225,7 +225,7 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
                     int[] avatars = new int[] {R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
                     Random r = new Random();
                     //随机10000个点
-                    for (int i = 0; i < 10000; i++) {
+                    for (int i = 0; i < 100; i++) {
 
                         double lat = Math.random() + mCurrentLocation.latitude;
                         double lon = Math.random() + mCurrentLocation.longitude;

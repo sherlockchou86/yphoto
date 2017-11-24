@@ -24,6 +24,11 @@ public class WeiboData {
     private static final String KEY_EXPIRES_IN    = "expires_in";
     private static final String KEY_REFRESH_TOKEN    = "refresh_token";
 
+    /**
+     * 读取accessToken
+     * @param context
+     * @return
+     */
     public static Oauth2AccessToken readAccessToken(Context context) {
         if (null == context) {
             return null;
@@ -39,6 +44,11 @@ public class WeiboData {
         return token;
     }
 
+    /**
+     * 保存accessToken
+     * @param context
+     * @param accessToken
+     */
     public static void writeAccessToken(Context context, Oauth2AccessToken accessToken) {
         if (null == context || null == accessToken) {
             return;
@@ -53,6 +63,10 @@ public class WeiboData {
         editor.commit();
     }
 
+    /**
+     * 清空保存数据
+     * @param context
+     */
     public static void clear(Context context) {
         if (null == context) {
             return;

@@ -25,6 +25,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (isSignedIn()) {
+            // sign in already, show main activity
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
         getSupportActionBar().hide();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
@@ -72,6 +80,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             // sign in succeed, show main activity
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         } else {
 
         }
@@ -87,5 +96,13 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onCancel() {
         Toast.makeText(this,
                 "用户取消授权", Toast.LENGTH_LONG).show();
+    }
+
+    private boolean isSignedIn() {
+        Oauth2AccessToken token = WeiboData.readAccessToken(this);
+        if (token != null && token.isSessionValid()) {
+            return true;
+        }
+        return false;
     }
 }

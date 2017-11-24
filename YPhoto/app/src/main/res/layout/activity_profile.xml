@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_in_background2"
+    tools:context="com.yphoto.zhzhi.yphoto.ProfileActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/profile_container"
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+            <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:id="@+id/avatar_img"
+                android:src="@drawable/default_avatar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                app:civ_border_width="1.2dp"
+                app:civ_border_color="@color/colorAvatarBorderLight"
+                android:layout_width="55dp"
+                android:layout_height="55dp" />
+            <RelativeLayout
+                android:layout_below="@id/avatar_img"
+                android:layout_width="match_parent"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/nickname"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="IT周见智"
+                    android:textColor="@color/colorProfileFontColor"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/user_sex"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/nickname"
+                    android:src="@drawable/male"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal|top"
+                android:layout_width="match_parent"
+                android:background="@color/colorProfileMapTypeBackground"
+                android:paddingTop="10dp"
+                android:layout_height="70dp">
+                <LinearLayout
+                    android:id="@+id/map_normal_container"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                        android:id="@+id/map_normal_image"
+                        android:src="@drawable/map_normal"
+                        app:civ_border_color="@color/colorSelectedBorderColor"
+                        app:civ_border_width="1dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp" />
+                    <TextView
+                        android:id="@+id/map_normal_text"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorSelectedBorderColor"
+                        android:text="@string/map_normal"
+                        android:textSize="12dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:id="@+id/map_satellite_container"
+                    android:layout_toRightOf="@id/map_normal_container"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                        android:src="@drawable/map_satellite"
+                        android:id="@+id/map_satellite_image"
+                        app:civ_border_color="@color/colorUnSelectedBorderColor"
+                        app:civ_border_width="1dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp" />
+                    <TextView
+                        android:id="@+id/map_satellite_text"
+                        android:textAlignment="center"
+                        android:text="@string/map_satellite"
+                        android:textColor="@color/colorUnSelectedBorderColor"
+                        android:textSize="12dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:id="@+id/map_3d_container"
+                    android:layout_toRightOf="@id/map_satellite_container"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                        android:id="@+id/map_3d_image"
+                        android:src="@drawable/map_3d"
+                        app:civ_border_color="@color/colorUnSelectedBorderColor"
+                        app:civ_border_width="1dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp" />
+                    <TextView
+                        android:id="@+id/map_3d_text"
+                        android:textAlignment="center"
+                        android:text="@string/map_3d"
+                        android:textColor="@color/colorUnSelectedBorderColor"
+                        android:textSize="12dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:id="@+id/map_night_container"
+                    android:layout_toRightOf="@id/map_3d_container"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                        android:id="@+id/map_night_image"
+                        android:src="@drawable/map_night"
+                        app:civ_border_color="@color/colorUnSelectedBorderColor"
+                        app:civ_border_width="1dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp" />
+                    <TextView
+                        android:id="@+id/map_night_text"
+                        android:textAlignment="center"
+                        android:text="@string/map_night"
+                        android:textColor="@color/colorUnSelectedBorderColor"
+                        android:textSize="12dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_header"
+                app:tabIndicatorHeight="0.4dp"
+                android:background="@color/colorDefaultViewBackground"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/tab_content"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:background="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

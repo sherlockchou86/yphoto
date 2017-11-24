@@ -37,5 +37,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.github.ronaldsmartin:Material-ViewPagerIndicator:1.0.4'
     compile 'com.infstory:weibo-android-sdk-core:3.1.4'
+    compile 'com.android.support:design:+'
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     testCompile 'junit:junit:4.12'
 }

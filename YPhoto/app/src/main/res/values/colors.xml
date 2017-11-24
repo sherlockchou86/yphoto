@@ -19,4 +19,6 @@
     <color name="colorTextBackground">#83000000</color>
     <color name="colorSignInButtonBackground">#38ffffff</color>
     <color name="colorSignInLogoBackground">#21ffffff</color>
+    <color name="colorProfileMapTypeBackground">#21ffffff</color>
+    <color name="colorProfileFriendsListBackground">#bbffffff</color>
 </resources>

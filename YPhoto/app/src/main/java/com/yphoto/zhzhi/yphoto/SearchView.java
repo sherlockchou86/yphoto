@@ -3,10 +3,8 @@ package com.yphoto.zhzhi.yphoto;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 /**
@@ -45,10 +43,8 @@ public class SearchView extends RelativeLayout implements View.OnClickListener {
     @Override
     public void onClick(View v){
         if (v.getId() == R.id.avatar) {
-            MenuView menu = new MenuView(getContext());
-            PopupWindow popup = new PopupWindow(menu, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, true);
-            popup.setAnimationStyle(R.style.MenuAnimation);
-            popup.showAtLocation(this, Gravity.NO_GRAVITY, 0, 0);
+            Intent intent = new Intent(getContext(), ProfileActivity.class);
+            getContext().startActivity(intent);
         } else if (v.getId() == R.id.search_box || v.getId() == R.id.search_button) {
             Intent intent = new Intent(getContext(), LocationSearchActivity.class);
             getContext().startActivity(intent);
