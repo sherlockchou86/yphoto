@@ -1,65 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/border_round_background"
-    android:layout_width="42dp"
-    android:layout_height="wrap_content">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/map_type_container"
+            android:layout_margin="4dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+                android:id="@+id/map_type"
+                app:civ_border_color="@color/colorSelectedBorderColor"
+                app:civ_border_width="2dp"
+                android:src="@drawable/map_night"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/compass"
-        android:src="@drawable/compass"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-    <View
-        android:id="@+id/separator_1"
-        android:layout_below="@id/compass"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_width="match_parent"
-        android:background="@color/colorSeparator"
-        android:layout_height="0.2dp"/>
+        <RelativeLayout
+            android:id="@+id/all_status_container"
+            android:layout_margin="4dp"
+            android:background="@drawable/map_tools_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:id="@+id/all_status"
+                android:layout_margin="8dp"
+                android:src="@drawable/all_status_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
-    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-        android:id="@+id/zoom_in"
-        android:src="@drawable/zoom_in"
-        android:layout_below="@id/separator_1"
-        android:layout_width="match_parent"
-        android:layout_height="26dp" />
-    <View android:layout_width="match_parent"
-        android:id="@+id/separator_2"
-        android:layout_below="@id/zoom_in"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:background="@color/colorSeparator"
-        android:layout_height="0.2dp"/>
+        <RelativeLayout
+            android:id="@+id/just_photo_container"
+            android:layout_margin="4dp"
+            android:background="@drawable/map_tools_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:id="@+id/just_photo"
+                android:layout_margin="8dp"
+                android:src="@drawable/just_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
-    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-        android:id="@+id/zoom_out"
-        android:src="@drawable/zoom_out"
-        android:layout_below="@id/separator_2"
-        android:layout_width="match_parent"
-        android:layout_height="26dp" />
-    <View
-        android:id="@+id/separator_3"
-        android:layout_below="@id/zoom_out"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_width="match_parent"
-        android:background="@color/colorSeparator"
-        android:layout_height="0.2dp"/>
+        <RelativeLayout
+            android:id="@+id/load_more_container"
+            android:layout_margin="4dp"
+            android:background="@drawable/map_tools_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:id="@+id/load_more"
+                android:layout_margin="5dp"
+                android:src="@drawable/load_more"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
-    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-        android:id="@+id/add_favorite"
-        android:src="@drawable/locate_me"
-        android:layout_below="@id/separator_3"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="6dp"
-        android:layout_height="30dp" />
-
+    </LinearLayout>
 </RelativeLayout>

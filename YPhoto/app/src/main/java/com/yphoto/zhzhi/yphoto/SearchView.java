@@ -45,7 +45,7 @@ public class SearchView extends RelativeLayout implements View.OnClickListener {
         if (v.getId() == R.id.avatar) {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
             getContext().startActivity(intent);
-        } else if (v.getId() == R.id.search_box || v.getId() == R.id.search_button) {
+        } else if (v.getId() == R.id.search_box) {
             Intent intent = new Intent(getContext(), LocationSearchActivity.class);
             getContext().startActivity(intent);
         }

@@ -63,7 +63,7 @@
 
     <com.yphoto.zhzhi.yphoto.tools.CircleImageView
         android:id="@+id/search_button"
-        android:src="@drawable/search_btn"
+        android:src="@drawable/locate_me"
         app:civ_border_width="0dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
