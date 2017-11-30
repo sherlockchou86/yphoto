@@ -82,7 +82,7 @@ public class PhotoSwitchView extends RelativeLayout implements ViewPager.OnPageC
         map = new HashMap<String, Object>();
         map.put("avatar", R.drawable.default_avatar);
         map.put("nickname", "微软小娜");
-        map.put("photo", R.drawable.sign_in_background2);
+        map.put("photo", R.drawable.background3);
         map.put("count", 2);
         map.put("loc", new LatLng(39.955126, 116.350220));
         map.put("loc_str", "东小口派出所");

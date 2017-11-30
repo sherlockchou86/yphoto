@@ -1,6 +1,7 @@
 package com.yphoto.zhzhi.yphoto;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -8,10 +9,13 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdate;
@@ -36,7 +40,7 @@ import static com.yphoto.zhzhi.yphoto.maps.ClusterOverlay.dp2px;
  * Use the {@link MapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment implements AMap.OnMapLongClickListener {
+public class MapFragment extends Fragment implements AMap.OnMapLongClickListener, AMap.OnMapClickListener, MapToolsView.MapToolClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,6 +65,10 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
 
     // 负责地图中聚合点的显示
     private ClusterOverlay mClusterOverlay;
+
+    // 地图元素是否显示
+    private boolean mIsMapElementsShow = true;
+
 
     public MapFragment() {
         // Required empty public constructor
@@ -102,9 +110,14 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
         mMapView = (MapView) fragment.findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
 
-        initAMap();
-
         return fragment;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        initAMap();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -157,15 +170,6 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
         super.onSaveInstanceState(outState);
         mMapView.onSaveInstanceState(outState);
     }
-
-    /**
-     * 长按Map，居中地图
-     */
-    @Override
-    public void onMapLongClick(LatLng latLng) {
-        centerMap(latLng);
-    }
-
     /**
      * 初始化Map
      */
@@ -197,6 +201,11 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
 
             // 注册事件
             aMap.setOnMapLongClickListener(this);
+            aMap.setOnMapClickListener(this);
+
+
+            MapToolsView map_tool = (MapToolsView) (getView().findViewById(R.id.map_tool));
+            map_tool.setOnMapToolClickListener(this);
         }
     }
     /**
@@ -223,12 +232,12 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
             new Thread() {
                 public void run() {
                     int[] avatars = new int[] {R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6};
-                    Random r = new Random();
+                    Random r = new Random(1);
                     //随机10000个点
-                    for (int i = 0; i < 100; i++) {
+                    for (int i = 0; i < 500; i++) {
 
-                        double lat = Math.random() + mCurrentLocation.latitude;
-                        double lon = Math.random() + mCurrentLocation.longitude;
+                        double lat = Math.random() / 100 * (r.nextBoolean() ? (1) : (-1)) + mCurrentLocation.latitude;
+                        double lon = Math.random() / 100 * (r.nextBoolean() ? (1) : (-1)) + mCurrentLocation.longitude;
 
                         LatLng latLng = new LatLng(lat, lon, false);
                         RegionItem regionItem = new RegionItem(latLng,
@@ -262,6 +271,55 @@ public class MapFragment extends Fragment implements AMap.OnMapLongClickListener
      */
     private void loadPhotoAsync() {
 
+    }
+
+    /**
+     * 点击map，隐藏/显示Map上的元素
+     * @param latLng
+     */
+    @Override
+    public void onMapClick(LatLng latLng) {
+        SearchView search_view = (SearchView) ((Activity)mContext).findViewById(R.id.search_view);
+        MapToolsView map_tool = (MapToolsView) ((Activity)mContext).findViewById(R.id.map_tool);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        ((Activity)mContext).getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        if (mIsMapElementsShow) {
+            mIsMapElementsShow = false;
+            search_view.animate().translationY((search_view.getHeight() + dp2px(mContext, 6)) * (-1)).setInterpolator(new DecelerateInterpolator());
+            map_tool.animate().translationY(map_tool.getHeight() + dp2px(mContext, 6)).setInterpolator(new DecelerateInterpolator());
+        } else {
+            mIsMapElementsShow = true;
+            search_view.animate().translationY(0).setInterpolator(new DecelerateInterpolator());
+            map_tool.animate().translationY(0).setInterpolator(new DecelerateInterpolator());
+        }
+    }
+
+    /**
+     * 长按Map，居中地图
+     */
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        centerMap(latLng);
+    }
+
+    /**
+     * map tool 事件
+     * @param map_type
+     * @param data_type
+     * @param load_more
+     */
+    @Override
+    public void onMapToolClick(MapToolsView.MapType map_type, MapToolsView.MapDataType data_type, boolean load_more) {
+        AMap aMap = mMapView.getMap();
+        if (map_type == MapToolsView.MapType.NORMAL) {
+            aMap.setMapType(AMap.MAP_TYPE_NORMAL);
+        } else if(map_type == MapToolsView.MapType.SATELLITE) {
+            aMap.setMapType(AMap.MAP_TYPE_SATELLITE);
+        } else if(map_type == MapToolsView.MapType.NIGHT) {
+            aMap.setMapType(AMap.MAP_TYPE_NIGHT);
+        }
     }
 
     /**

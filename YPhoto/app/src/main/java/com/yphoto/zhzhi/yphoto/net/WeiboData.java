@@ -12,9 +12,10 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 public class WeiboData {
     public static final String APP_KEY = "1923404277";
     public static final String REDIRECT_URL = "https://api.weibo.com/oauth2/default.html";
-    public static final String SCOPE = "email,direct_messages_read,direct_messages_write,"
+    public static final String SCOPE2 = "email,direct_messages_read,direct_messages_write,"
             + "friendships_groups_read,friendships_groups_write,statuses_to_me_read,"
             + "follow_app_official_microblog," + "invitation_write";
+    public static final String SCOPE = "all";
 
 
     private static final String PREFERENCES_NAME = "com_yphoto_zhzhi_yphoto";

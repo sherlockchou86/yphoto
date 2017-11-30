@@ -1,18 +1,32 @@
 package com.yphoto.zhzhi.yphoto;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.amap.api.maps.model.LatLng;
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.net.RequestListener;
+import com.yphoto.zhzhi.yphoto.net.PlaceOpenAPI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LocationSearchActivity extends AppCompatActivity {
+public class LocationSearchActivity extends AppCompatActivity implements TextWatcher, View.OnClickListener {
+    String mSearchTimeStamp = null;
+    EditText search_box;
+    ImageView clear_progress_btn;
+
+    PlaceOpenAPI mPlaceAPI;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,17 @@ public class LocationSearchActivity extends AppCompatActivity {
                 new String[]{"name", "detail", "item_type"},
                 new int[]{R.id.location_name, R.id.location_detail, R.id.item_type_icon});
         search_list.setAdapter(adapter);
+
+        /*
+        search_box = (EditText) findViewById(R.id.search_box);
+        search_box.addTextChangedListener(this);
+
+        clear_progress_btn = (ImageView) findViewById(R.id.clear_progress_icon);
+        clear_progress_btn.setOnClickListener(this);
+        clear_progress_btn.setImageDrawable(null);
+
+        mPlaceAPI = new PlaceOpenAPI(this, WeiboData.APP_KEY, WeiboData.readAccessToken(this));
+        */
     }
 
     private List<Map<String, Object>> getLocationList() {
@@ -130,5 +155,44 @@ public class LocationSearchActivity extends AppCompatActivity {
         list.add(map);
 
         return list;
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if (!search_box.getText().toString().equals("")) {
+            clear_progress_btn.setImageResource(R.drawable.loading);
+            final String time_stamp = mSearchTimeStamp = String.valueOf(System.currentTimeMillis());
+            mPlaceAPI.poisSearch(search_box.getText().toString(), null, null, 50, 1, new RequestListener() {
+                @Override
+                public void onComplete(String s) {
+                    clear_progress_btn.setImageResource(R.drawable.cancel_btn);
+                }
+
+                @Override
+                public void onWeiboException(WeiboException e) {
+                    clear_progress_btn.setImageResource(R.drawable.cancel_btn);
+                }
+            });
+
+        } else {
+            clear_progress_btn.setImageDrawable(null);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (mSearchTimeStamp == null) {
+            search_box.setText("");
+        }
     }
 }

@@ -91,7 +91,7 @@
 
         <TextView
             android:id="@+id/status_text"
-            android:text="111啊是减肥哈地方阿斯阿斯蒂芬较为匮乏考虑无风格士大夫敢死队风格跟第三方各位蒂芬潍坊市阿斯顿发放2222111111111"
+            android:text="任志强出席《财经》年会2018并发表演讲，对于我国老年化可能导致住房需求减少，任志强并不认同。"
             android:textColor="@color/colorStatusDetailText"
             android:layout_below="@id/author_avatar"
             android:layout_margin="8dp"

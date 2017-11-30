@@ -88,7 +88,7 @@ public class StatusDetailView extends RelativeLayout implements View.OnClickList
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("photo", R.drawable.sign_in_background);
+        map.put("photo", R.drawable.background3);
         list.add(map);
 
         return list;

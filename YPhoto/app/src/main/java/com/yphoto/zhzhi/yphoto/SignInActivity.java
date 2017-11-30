@@ -1,6 +1,7 @@
 package com.yphoto.zhzhi.yphoto;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -56,7 +57,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             ssoHandler.authorize(this);
 
         } else if (v.getId() == R.id.github_btn) {
-            // TODO: go to my github site
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sherlockchou86"));
+            startActivity(browserIntent);
         }
     }
 

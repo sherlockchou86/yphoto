@@ -84,6 +84,30 @@ public class PlaceOpenAPI extends BaseOpenAPI {
         requestAsync(SERVER_URL_PRIX + "/user_timeline.json", params, HTTPMETHOD_GET, listener);
     }
 
+    /**
+     * 按省市查询地点。
+     *
+     * @param keyword   查询的关键词
+     * @param city      城市代码，默认为全国搜索
+     * @param category  查询的分类代码，取值范围见：分类代码对应表
+     * @param count     单页返回的记录条数，默认为20，最大为50
+     * @param page      返回结果的页码，默认为1。
+     * @param listener  异步请求回调接口
+     */
+    public void poisSearch(String keyword, String city, String category, int count, int page, RequestListener listener) {
+        WeiboParameters params = new WeiboParameters(mAppKey);
+        params.put("keyword", keyword);
+        if (city != null) {
+            params.put("city", city);
+        }
+        if (category != null) {
+            params.put("category", category);
+        }
+        params.put("count", count);
+        params.put("page", page);
+        requestAsync(SERVER_URL_PRIX + "/pois/search.json", params, HTTPMETHOD_GET, listener);
+    }
+
     // 组装NearBy的参数
     private WeiboParameters buildNearbyParams(String lat, String lon, int range, int count, int page,
                                               int sortType, boolean offset) {

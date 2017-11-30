@@ -93,6 +93,7 @@
                 android:layout_height="0.4dp"/>
             <RelativeLayout
                 android:id="@+id/history_container"
+                android:visibility="invisible"
                 android:layout_marginTop="41dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

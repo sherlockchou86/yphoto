@@ -13,7 +13,7 @@
         <RelativeLayout
             android:id="@+id/profile_container"
             android:layout_width="match_parent"
-            android:layout_height="170dp">
+            android:layout_height="120dp">
             <com.yphoto.zhzhi.yphoto.tools.CircleImageView
                 android:id="@+id/avatar_img"
                 android:src="@drawable/default_avatar"
@@ -24,6 +24,7 @@
                 android:layout_width="55dp"
                 android:layout_height="55dp" />
             <RelativeLayout
+                android:id="@+id/user_container"
                 android:layout_below="@id/avatar_img"
                 android:layout_width="match_parent"
                 android:padding="3dp"
@@ -47,113 +48,15 @@
                     android:layout_width="14dp"
                     android:layout_height="14dp" />
             </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_alignParentBottom="true"
-                android:gravity="center_horizontal|top"
-                android:layout_width="match_parent"
-                android:background="@color/colorProfileMapTypeBackground"
-                android:paddingTop="10dp"
-                android:layout_height="70dp">
-                <LinearLayout
-                    android:id="@+id/map_normal_container"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-                        android:id="@+id/map_normal_image"
-                        android:src="@drawable/map_normal"
-                        app:civ_border_color="@color/colorSelectedBorderColor"
-                        app:civ_border_width="1dp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp" />
-                    <TextView
-                        android:id="@+id/map_normal_text"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorSelectedBorderColor"
-                        android:text="@string/map_normal"
-                        android:textSize="12dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="18dp"
-                    android:id="@+id/map_satellite_container"
-                    android:layout_toRightOf="@id/map_normal_container"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-                        android:src="@drawable/map_satellite"
-                        android:id="@+id/map_satellite_image"
-                        app:civ_border_color="@color/colorUnSelectedBorderColor"
-                        app:civ_border_width="1dp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp" />
-                    <TextView
-                        android:id="@+id/map_satellite_text"
-                        android:textAlignment="center"
-                        android:text="@string/map_satellite"
-                        android:textColor="@color/colorUnSelectedBorderColor"
-                        android:textSize="12dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="18dp"
-                    android:id="@+id/map_3d_container"
-                    android:layout_toRightOf="@id/map_satellite_container"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-                        android:id="@+id/map_3d_image"
-                        android:src="@drawable/map_3d"
-                        app:civ_border_color="@color/colorUnSelectedBorderColor"
-                        app:civ_border_width="1dp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp" />
-                    <TextView
-                        android:id="@+id/map_3d_text"
-                        android:textAlignment="center"
-                        android:text="@string/map_3d"
-                        android:textColor="@color/colorUnSelectedBorderColor"
-                        android:textSize="12dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="18dp"
-                    android:id="@+id/map_night_container"
-                    android:layout_toRightOf="@id/map_3d_container"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-                        android:id="@+id/map_night_image"
-                        android:src="@drawable/map_night"
-                        app:civ_border_color="@color/colorUnSelectedBorderColor"
-                        app:civ_border_width="1dp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp" />
-                    <TextView
-                        android:id="@+id/map_night_text"
-                        android:textAlignment="center"
-                        android:text="@string/map_night"
-                        android:textColor="@color/colorUnSelectedBorderColor"
-                        android:textSize="12dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/user_desc"
+                android:layout_below="@id/user_container"
+                android:textSize="12sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorStatusDetailText"
+                android:text="中关村一线码农"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </RelativeLayout>
 
         <LinearLayout

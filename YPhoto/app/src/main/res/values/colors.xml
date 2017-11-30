@@ -12,6 +12,7 @@
     <color name="colorSeparator">#ececec</color>
     <color name="colorPopupBackground">#60000000</color>
     <color name="colorPopupBackgroundDark">#000000</color>
+    <color name="colorPopupTipBackground">#da000000</color>
     <color name="colorSelectedBorderColor">#029bfc</color>
     <color name="colorUnSelectedBorderColor">#ffffff</color>
     <color name="colorUnSelectedTextColor">#aaaaaa</color>
