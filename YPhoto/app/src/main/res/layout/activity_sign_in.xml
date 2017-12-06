@@ -28,7 +28,7 @@
                 android:layout_marginRight="10dp"
                 android:textSize="16sp"
                 android:textColor="@color/colorStatusDetailText"
-                android:text="发现周边美图"
+                android:text="@string/sign_des"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>

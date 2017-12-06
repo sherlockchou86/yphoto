@@ -18,6 +18,18 @@
         android:layout_width="32dp"
         android:layout_height="32dp" />
 
+    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
+        android:id="@+id/profile_btn"
+        android:src="@drawable/profile"
+        app:civ_border_width="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp" />
+
     <View android:layout_toRightOf="@id/avatar"
         android:layout_toEndOf="@id/avatar"
         android:layout_width="1dp"
@@ -30,8 +42,8 @@
         android:id="@+id/left_separator"
         />
 
-    <View android:layout_toStartOf="@id/search_button"
-        android:layout_toLeftOf="@id/search_button"
+    <View android:layout_toStartOf="@id/profile_btn"
+        android:layout_toLeftOf="@id/profile_btn"
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:layout_marginRight="7dp"
@@ -58,18 +70,7 @@
         android:layout_marginBottom="6dp"
         android:gravity="center"
         android:textSize="16dp"
-        android:text="微软大厦--海淀区丹棱街5号"
+        android:text="IT周见智 的足迹"
         />
 
-    <com.yphoto.zhzhi.yphoto.tools.CircleImageView
-        android:id="@+id/search_button"
-        android:src="@drawable/locate_me"
-        app:civ_border_width="0dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_width="32dp"
-        android:layout_height="32dp" />
 </RelativeLayout>

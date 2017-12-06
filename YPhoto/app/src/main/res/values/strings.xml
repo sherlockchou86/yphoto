@@ -4,6 +4,17 @@
     <string name="map_satellite">卫星视图</string>
     <string name="map_3d">俯视视图</string>
     <string name="map_night">夜间视图</string>
+    <string name="sign_des">发现微博足迹</string>
+
+    <string name="map_normal_tip">切换到正常视图</string>
+    <string name="map_satellite_tip">切换到卫星视图</string>
+    <string name="map_night_tip">切换到夜间视图</string>
+
+    <string name="load_all_tip">显示所有微博</string>
+    <string name="just_photo">仅显示图片</string>
+
+    <string name="start_refresh_tip">开始刷新</string>
+    <string name="load_more_tip">加载更多...</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

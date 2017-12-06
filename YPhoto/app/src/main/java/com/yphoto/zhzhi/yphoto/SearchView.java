@@ -30,19 +30,16 @@ public class SearchView extends RelativeLayout implements View.OnClickListener {
     private void initView(final Context context) {
         final View root = LayoutInflater.from(context).inflate(R.layout.view_search, this, true);
 
-        final View view_avatar = findViewById(R.id.avatar);
-        view_avatar.setOnClickListener(this);   //点击头像
+        final View view_profile = findViewById(R.id.profile_btn);
+        view_profile.setOnClickListener(this);
 
         final View search_box = findViewById(R.id.search_box);
         search_box.setOnClickListener(this);
-
-        final View search_btn = findViewById(R.id.search_button);
-        search_btn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        if (v.getId() == R.id.avatar) {
+        if (v.getId() == R.id.profile_btn) {
             Intent intent = new Intent(getContext(), ProfileActivity.class);
             getContext().startActivity(intent);
         } else if (v.getId() == R.id.search_box) {
